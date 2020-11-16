@@ -1,20 +1,14 @@
-# Timer
+Context manager called Timer which will record how long a block of code takes to execute.
 
-
-## Context manager called Timer which will record how long a block of code takes to execute.
-
-```
 >>> from time import sleep
 >>> with Timer() as timer:
 ...     sleep(1.5)
 ...
 >>> timer.elapsed
 1.504882783210324
-```
 
-### Record the elapsed times of each usage of the context manager in a runs attribute.
+Record the elapsed times of each usage of the context manager in a runs attribute.
 
-```
 >>> timer = Timer()
 >>> with timer:
 ...     x = sum(range(2**24))
@@ -28,11 +22,9 @@
 0.5121023440151475
 >>> timer.runs
 [0.2696345190051943, 0.5121023440151475]
-```
 
-### Timer can be used as a decorator too:
+Timer can be used as a decorator too:
 
-```
 >>> @Timer
 ... def sum_of_squares(numbers):
 ...     return sum(n**2 for n in numbers)
@@ -43,11 +35,9 @@
 3074455146595352576
 >>> sum_of_squares.runs
 [0.35114182299003005, 0.6639977040467784]
-```
-        
-### Maintains min, max, mean, and median properties that keep track of these values for all runs in a given timer:
 
-```   
+Maintains min, max, mean, and median properties that keep track of these values for all runs in a given timer:
+
 >>> sum_of_squares(range(2**19))
 48038258586419200
 >>> sum_of_squares(range(2**22))
@@ -62,4 +52,4 @@
 0.19335223210509866
 >>> sum_of_squares.max
 1.3423286559991539
-```
+
