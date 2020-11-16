@@ -15,15 +15,14 @@ class Timer:
             return self.func(*args, **kwargs)
 
     def __enter__(self):
-        self.start = perf_counter
+        self.start = perf_counter()
         return self
 
     def __exit__(self, *args):
         self.end = perf_counter()
-        sef.elapsed = self.end - self.start
+        self.elapsed = self.end - self.start
         self.runs.append(self.elapsed)
         self.mean = mean(self.runs)
         self.median = median(self.runs)
         self.min = min(self.runs)
         self.max = max(self.runs)
-
