@@ -1,7 +1,7 @@
 # Timer
 
 
-## Context manager called Timer which will record how long a block of code takes to execute.
+## Context manager that records how long a block of code takes to execute.
 
 ```
 >>> from time import sleep
